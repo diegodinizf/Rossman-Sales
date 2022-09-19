@@ -14,7 +14,7 @@ TOKEN = '5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q'
 'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/getUpdates'
 
 # Webhook
-'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/setWebhook?url=https://rossmann.rj.r.appspot.com/'
+'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/setWebhook?url=https://telegram-rossmann.rj.r.appspot.com/'
 
 # send messages
 'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/sendMessage?chat_id=1148619044&text=Hi!'
@@ -104,6 +104,7 @@ def index():
                                                            df_pred['prediction'].values[0])
                 send_message(chat_id, msg)
 
+                return Response('Ok', status=200)
 
                 # send message
 
