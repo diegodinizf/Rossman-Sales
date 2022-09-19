@@ -14,7 +14,7 @@ TOKEN = '5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q'
 'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/getUpdates'
 
 # Webhook
-'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/setWebhook?url=https://rossmannapp-telegram-api.rj.r.appspot.com'
+'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/setWebhook?url=https://rossmann-telegram-app.rj.r.appspot.com/rossmann/predict'
 
 # send messages
 'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/sendMessage?chat_id=1148619044&text=Hi!'
@@ -54,7 +54,7 @@ def load_dataset(store_id):
 def predict(data):    
     # API Call
     #url = 'http://192.168.1.9:5000/rossmann/predict'
-    url2 = 'https://rossmannapp-telegram-api.rj.r.appspot.com/rossmann/predict' # Link from google cloud
+    url2 = 'https://rossmann-telegram-app.rj.r.appspot.com/rossmann/predict' # Link from google cloud
     header = {'Content-type': 'application/json'}
     data = data
 
