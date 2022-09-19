@@ -132,12 +132,13 @@ After the evaluation of the predictions, it was possible to translate the model 
 
 ## Model Deployiment
 
+The model used for the predictions was deployed in Google Cloud Platform. To get the values, it was created a Telegram Bot.
 
-			
+In this application, the user inputs the Store ID and the app responds with the forescast
 
+![ezgif-2-f475e308c7](https://user-images.githubusercontent.com/110054775/191134126-b365d7de-8e7a-41e2-ab9b-d54d43d011f1.gif)
 
-     
-
+To access the Bot inside Telegram, search for @rossmannapp_bot
 
 
 
