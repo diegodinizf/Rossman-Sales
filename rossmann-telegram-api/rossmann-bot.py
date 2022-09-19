@@ -29,8 +29,8 @@ def send_message(chat_id, text):
 
 def load_dataset(store_id):
     # loading dataset
-    df10 = pd.read_csv(r"data\test.csv")
-    df_stores_raw = pd.read_csv("data\store.csv")
+    df10 = pd.read_csv("test.csv")
+    df_stores_raw = pd.read_csv("store.csv")
 
     # merge test dataset + store
     df_test = pd.merge(df10, df_stores_raw, how='left', on='Store')
@@ -54,7 +54,7 @@ def load_dataset(store_id):
 def predict(data):    
     # API Call
     #url = 'http://192.168.1.9:5000/rossmann/predict'
-    url2 = 'https://rossmannapp-telegram-api.rj.r.appspot.com/' # Link from google cloud
+    url2 = 'https://rossmannapp-telegram-api.rj.r.appspot.com/rossmann/predict' # Link from google cloud
     header = {'Content-type': 'application/json'}
     data = data
 
@@ -81,7 +81,7 @@ def parse_message(message):
 # API Initialize
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/rossmann/predict', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         message = request.get_json()
@@ -117,5 +117,6 @@ def index():
     else:
         return '<h1> Rossmann Telegram BOT </h1>'
 
-if __name__=='__main__':
-    app.run('0.0.0.0', port=5000)
+if __name__== '__main__':
+    port = os.environ.get('PORT', 5000)
+    app.run('0.0.0.0', port=port)
