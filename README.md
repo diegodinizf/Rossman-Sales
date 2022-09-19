@@ -1,4 +1,4 @@
-# Rossmann Stores - 6 Weeks Sales Forecast
+# Rossmann Stores - 6 Weeks Sales Forecast <img src=https://user-images.githubusercontent.com/64495168/129553804-9baec55b-e3bf-407c-a5f5-8b229490bd27.png alt="Rossmann logo" title="Rossmann" align="right" height="60" class="center"/>
 
 Disclaimer: this project was inspired by the "Rossmann Store Sales" challenge published on kaggle (https://www.kaggle.com/c/rossmann-store-sales). It is a fictitious project but with all the steps of a real project.
 
