@@ -30,7 +30,7 @@ def send_message(chat_id, text):
 def load_dataset(store_id):
     # loading dataset
     df10 = pd.read_csv(r"data\test.csv")
-    df_stores_raw = pd.read_csv("data\store.csv", low_memory=False)
+    df_stores_raw = pd.read_csv("data\store.csv")
 
     # merge test dataset + store
     df_test = pd.merge(df10, df_stores_raw, how='left', on='Store')
@@ -74,7 +74,6 @@ def parse_message(message):
     try:
         store_id = int(store_id)
     except ValueError:
-        send_message(chat_id, 'Store ID is Wrong')
         store_id = 'error'
 
     return chat_id, store_id
@@ -82,7 +81,7 @@ def parse_message(message):
 # API Initialize
 app = Flask(__name__)
 
-@app.rout('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         message = request.get_json()
@@ -91,7 +90,7 @@ def index():
 
         if store_id != 'error':
             # loading data
-            data = load_dataset(store_id=store_id)
+            data = load_dataset(store_id)
 
             if data != 'error':
 
@@ -113,11 +112,10 @@ def index():
                 return Response('Ok', status=200)
         else:
             send_message(chat_id, 'Store ID is Wrong')
-
             return Response('Ok', status=200)
 
     else:
         return '<h1> Rossmann Telegram BOT </h1>'
 
 if __name__=='__main__':
-    app.run(debug=True)
+    app.run('0.0.0.0', port=5000)
