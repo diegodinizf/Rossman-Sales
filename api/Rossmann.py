@@ -8,22 +8,19 @@ import datetime
 
 class Rossmann(object):
        def __init__(self): 
-              self.home_path = '/Users/diego/OneDrive/Área de Trabalho/Portfolio Projects/Rossman-Sales/'
-              self.competition_distance_scaler = pickle.load(open(self.home_path + 'parameter/competition_distance_scaler.pkl','wb'))
-              self.competition_time_month = pickle.load(open(self.home_path + 'parameter/competition_time_month_scaler.pkl','wb'))
-              self.promo_time_week = pickle.load(open(self.home_path + 'parameter/promo_time_week_scaler.pkl','wb'))
-              self.year = pickle.load(open(self.home_path + 'parameter/year_scaler.pkl','wb'))
-              self.store_type = pickle.load(open(self.home_path + 'parameter/store_type_scaler.pkl', 'wb'))
+              self.competition_distance_scaler = pickle.load(open('parameter/competition_distance_scaler.pkl','rb'))
+              self.competition_time_month = pickle.load(open('parameter/competition_time_month_scaler.pkl','rb'))
+              self.promo_time_week = pickle.load(open('parameter/promo_time_week_scaler.pkl','rb'))
+              self.year = pickle.load(open('parameter/year_scaler.pkl','rb'))
+              self.store_type = pickle.load(open('parameter/store_type_scaler.pkl', 'rb'))
 
        def data_cleaning(self, df1):
        
               ## 1.1 rename columsn
 
-              cols_old = ['Store', 'DayOfWeek', 'Sales', 'Open', 'Promo',
-              'StateHoliday', 'SchoolHoliday', 'StoreType', 'Assortment',
-              'CompetitionDistance', 'CompetitionOpenSinceMonth',
-              'CompetitionOpenSinceYear', 'Promo2', 'Promo2SinceWeek',
-              'Promo2SinceYear', 'PromoInterval']
+              cols_old = ['Store', 'DayOfWeek', 'Date', 'Open', 'Promo','StateHoliday', 'SchoolHoliday', 'StoreType', 'Assortment',
+                    'CompetitionDistance', 'CompetitionOpenSinceMonth','CompetitionOpenSinceYear', 'Promo2', 'Promo2SinceWeek','Promo2SinceYear', 'PromoInterval']
+
 
               snakecase = lambda x: inflection.underscore (x)
               cols_new = list(map(snakecase,cols_old))
@@ -116,22 +113,22 @@ class Rossmann(object):
        def data_preparation(self, df5):
        
               # competition distance
-              df5['competition_distance'] = self.competition_distance_scaler.compers.fit_transform( df5[['competition_distance']].values)
+              df5['competition_distance'] = self.competition_distance_scaler.transform( df5[['competition_distance']].values)
 
               # competition time month
-              df5['competition_time_month'] = self.competition_time_month.fit_transform( df5[['competition_time_month']].values)
+              df5['competition_time_month'] = self.competition_time_month.transform( df5[['competition_time_month']].values)
 
               # promo time week
-              df5['promo_time_week'] = self.promo_time_week.fit_transform( df5[['promo_time_week']].values)
+              df5['promo_time_week'] = self.promo_time_week.transform( df5[['promo_time_week']].values)
 
               # year
-              df5['year'] = self.year.fit_transform( df5[['year']].values)
+              df5['year'] = self.year.transform( df5[['year']].values)
 
               # state holiday - One Hot Encoding: great work for 'states', such as holidays
               df5 = pd.get_dummies(df5,prefix=['state_holiday'], columns=['state_holiday'])
 
               # store type - Label Encoding: works for categories that without any specific magnitude  
-              df5['store_type'] = self.store_type.fit_transform(df5['store_type'])
+              df5['store_type'] = self.store_type.transform(df5['store_type'])
               
               # assortment - Ordinal Encoding: works fot categories with manigtude order.
               assortment_dict = {'basic':1,
@@ -163,7 +160,7 @@ class Rossmann(object):
               # week of year
               df5['week_of_year_sin'] = df5['week_of_year'].apply(lambda x: np.sin(x*(2*np.pi/52)))
               df5['week_of_year_cos'] = df5['week_of_year'].apply(lambda x: np.cos(x*(2*np.pi/52)))
-              df5['sales'] = np.log1p(df5['sales'])
+              #df5['sales'] = np.log1p(df5['sales'])
 
               cols_selected = ['store', 'promo', 'store_type', 'assortment','competition_distance',
                         'competition_open_since_month', 'competition_open_since_year', 'promo2',

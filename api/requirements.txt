@@ -1,0 +1,10 @@
+Boruta==0.3
+Flask==2.1.2
+inflection==0.5.1
+ipython==8.3.0
+numpy==1.21.6
+pandas==1.4.1
+scikit_learn==1.0.2
+scipy==1.8.0
+xgboost>=1.5.1
+gunicorn>=20.1.0

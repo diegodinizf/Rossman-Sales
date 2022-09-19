@@ -1,20 +1,20 @@
 from cgi import test
 from flask import Flask, request, Response
-from rossmann.Rossmann import Rossmann
+from Rossmann import Rossmann
 import pickle
 import pandas as pd
 
 # loading model
-model = pickle.load(open(r'C:\Users\diego\OneDrive\Área de Trabalho\Portfolio Projects\Rossman-Sales\model\model_rossmann.pkl', 'rb'))
+model = pickle.load(open(r'parameter/model_rossmann.pkl', 'rb'))
 
 # Initialize API
 app = Flask(__name__)
 
-@app.route('/rossmann/predict', method=['POST'])
+@app.route('/rossmann/predict', methods=['POST'])
 def rossmann_predict():
     test_json = request.get_json()
 
-    if test_json(): # there is data
+    if test_json: # there is data
         if isinstance(test_json, dict): # Unique sample
             test_raw = pd.DataFrame(test_json, index=[0])
 
@@ -34,7 +34,7 @@ def rossmann_predict():
         df3 = pipeline.data_preparation(test_raw)
 
         # prediction
-        df_response = pipeline.get_prediction(model, test_raw)
+        df_response = pipeline.get_prediction(model, test_raw, df3)
 
         return df_response
 
@@ -42,6 +42,6 @@ def rossmann_predict():
         return Response('{}', status=200, mimetype='application/json')
 
 if __name__ == '__main__':
-    app.run('0.0.0.0')
+    app.run('0.0.0.0', debug=True)
 
 
