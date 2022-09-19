@@ -96,7 +96,7 @@ Four different models (linear regression, regularized linear regression - lasso,
 Although Random Forest model appears to perform better, the model chosen to be implemented was the XGBoost, due to its lower memory consuming and does not have significant difference in performance.
 
 ## Hyperparameter Tuning
-Using the random search method, different values were chosen for the XGBoost model: "n_estimators", "eta", "max_depth", "subsample", "colsample_bytree" and "min_child_weight". 5 iteractions were performed using different parameters combination and it could result in the following performance:
+Using the random search method, different values were chosen for the XGBoost model: "n_estimators", "eta", "max_depth", "subsample", "colsample_bytree" and "min_child_weight". 5 iteractions were performed using different parameters combination and it could result in the following performance through cross-validation:
 
 |Model|MAE|MAPE|RMSE|
 |-----------------------------|------------------|-------------|------------------|
