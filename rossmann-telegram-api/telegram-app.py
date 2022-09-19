@@ -14,7 +14,7 @@ TOKEN = '5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q'
 'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/getUpdates'
 
 # Webhook
-'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/setWebhook?url=https://rossmann-telegram-app.rj.r.appspot.com/rossmann/predict'
+'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/setWebhook?url=https://telegram-rossmann.rj.r.appspot.com/'
 
 # send messages
 'https://api.telegram.org/bot5702485702:AAEsX3xRLP0o-RXyfZ4GcJMja2uv-Jfax0Q/sendMessage?chat_id=1148619044&text=Hi!'
@@ -54,7 +54,7 @@ def load_dataset(store_id):
 def predict(data):    
     # API Call
     #url = 'http://192.168.1.9:5000/rossmann/predict'
-    url2 = 'https://rossmann-telegram-app.rj.r.appspot.com/rossmann/predict' # Link from google cloud
+    url2 = 'https://telegram-rossmann.rj.r.appspot.com/' # Link from google cloud
     header = {'Content-type': 'application/json'}
     data = data
 
@@ -81,7 +81,7 @@ def parse_message(message):
 # API Initialize
 app = Flask(__name__)
 
-@app.route('/rossmann/predict', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         message = request.get_json()
@@ -118,5 +118,4 @@ def index():
         return '<h1> Rossmann Telegram BOT </h1>'
 
 if __name__== '__main__':
-    port = os.environ.get('PORT', 5000)
-    app.run('0.0.0.0', port=port)
+    app.run(debug=True)
