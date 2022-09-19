@@ -1,4 +1,4 @@
-# Rossmann Stores - 6 Weeks Sales Forecast
+# Rossmann Stores - 6 Weeks Sales Forecast <img src=https://user-images.githubusercontent.com/64495168/129553804-9baec55b-e3bf-407c-a5f5-8b229490bd27.png alt="Rossmann logo" title="Rossmann" align="right" height="60" class="center"/>
 
 Disclaimer: this project was inspired by the "Rossmann Store Sales" challenge published on kaggle (https://www.kaggle.com/c/rossmann-store-sales). It is a fictitious project but with all the steps of a real project.
 
@@ -132,12 +132,13 @@ After the evaluation of the predictions, it was possible to translate the model 
 
 ## Model Deployiment
 
+The model used for the predictions was deployed in Google Cloud Platform. To get the values, it was created a Telegram Bot.
 
-			
+In this application, the user inputs the Store ID and the app responds with the forescast
 
+![ezgif-2-f475e308c7](https://user-images.githubusercontent.com/110054775/191134126-b365d7de-8e7a-41e2-ab9b-d54d43d011f1.gif)
 
-     
-
+To access the Bot inside Telegram, search for @rossmannapp_bot
 
 
 
