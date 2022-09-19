@@ -118,4 +118,5 @@ def index():
         return '<h1> Rossmann Telegram BOT </h1>'
 
 if __name__== '__main__':
-    app.run(debug=True)
+    port=os.environ.get('PORT', 5000)
+    app.run(host='192.168.1.9', port=port)
