@@ -73,6 +73,7 @@ def parse_message(message):
 
     try:
         store_id = int(store_id)
+        
     except ValueError:
         store_id = 'error'
 
