@@ -77,7 +77,13 @@ With this, it was possible to make data recognize the proximity between the 30th
 
 ## Machine Learning Modeling
 
-Four different models (linear regression, regularized linear regression - lasso, random forest and XGBoost) were evaluated using a time series cross-validation. It is schematically represented below
+Four different models were tested in this project:
+- Linear Regression 
+- Regularized Linear Regression - Lasso 
+- Random Forest 
+- XGBoost 
+
+ These models were evaluated using a time series cross-validation. It is schematically represented below
 
 ![image](https://user-images.githubusercontent.com/110054775/191046190-541a3f65-3b7e-493b-b5bd-bce890f2f11a.png)
  
