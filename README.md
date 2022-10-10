@@ -3,7 +3,7 @@
 Disclaimer: this project was inspired by the "Rossmann Store Sales" challenge published on kaggle (https://www.kaggle.com/c/rossmann-store-sales). It is a fictitious project but with all the steps of a real project.
 
 ## Business Scenario
-The sales director of Rossmann's stores wants to estimate the sales forecast for the next 6 weeks on each store unit of the company spread across Europe
+The sales director of Rossmann's stores wants to estimate the sales forecast for the next 6 weeks on each store unit of the company spread across Europe. Currently, their predictions were made using the Average over the time. However, the company intends to change this prediction method due to budget allocation issues for stores.
 
 ## Solution Methodology
 This project was carried out following CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology.
@@ -77,7 +77,13 @@ With this, it was possible to make data recognize the proximity between the 30th
 
 ## Machine Learning Modeling
 
-Four different models (linear regression, regularized linear regression - lasso, random forest and XGBoost) were evaluated using a time series cross-validation. It is schematically represented below
+Four different models were tested in this project:
+- Linear Regression 
+- Regularized Linear Regression - Lasso 
+- Random Forest 
+- XGBoost 
+
+ These models were evaluated using a time series cross-validation. It is schematically represented below
 
 ![image](https://user-images.githubusercontent.com/110054775/191046190-541a3f65-3b7e-493b-b5bd-bce890f2f11a.png)
  
